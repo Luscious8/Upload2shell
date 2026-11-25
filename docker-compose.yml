@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    image: upload2shell-lab:10.07.0
+    container_name: upload2shell-lab
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # Lab app: no extra privileges needed. Keep it isolated as a normal service.
+    security_opt:
+      - no-new-privileges:true
